@@ -1,3 +1,7 @@
+package com.yuriykoziy.tetris.panels;
+
+import com.yuriykoziy.tetris.logic.Board;
+import com.yuriykoziy.tetris.piece.Tetromino;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,7 +24,7 @@ import javax.swing.JPanel;
  * - Display next tetromino shape
  * 
  * @author Yuriy Koziy
- * @version 1.0
+ * @version 1.01
  */
 public class SidePanel extends JPanel {
     private JLabel score;
@@ -50,7 +54,7 @@ public class SidePanel extends JPanel {
         add(lines);
         
         next = new PreviewPanel(70, 70);
-        next.setLocation(40, 265);
+        next.setLocation(45, 270);
         
         add(next);
     }
@@ -71,7 +75,7 @@ public class SidePanel extends JPanel {
         
     private void loadImage() {
         try {    
-            img = ImageIO.read(getClass().getResource("/resources/TetrisSidePanel.png"));
+            img = ImageIO.read(getClass().getResource("/com/yuriykoziy/tetris/resources/TetrisSidePanel.png"));
         } catch (IOException ex) {
             Logger.getLogger(SidePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -122,3 +126,4 @@ public class SidePanel extends JPanel {
         }      
     }
 }
+

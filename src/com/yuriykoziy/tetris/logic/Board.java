@@ -1,4 +1,6 @@
+package com.yuriykoziy.tetris.logic;
 
+import com.yuriykoziy.tetris.piece.Tetromino;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +13,7 @@ import javax.swing.event.SwingPropertyChangeSupport;
  * This class implements Tetris game logic.
  * 
  * @author Yuriy Koziy
- * @version 1.0
+ * @version 1.01
  */
 
 public class Board {
@@ -126,7 +128,7 @@ public class Board {
     public void rotate() {
         Tetromino tmp = new Tetromino(currentTetromino);
         tmp.rotate();
-        if(!isTetrominoColliding(0,0,tmp)) {
+        if(!isTetrominoColliding(0,1,tmp)) {
             currentTetromino.rotate();    
         }
     }
@@ -142,9 +144,9 @@ public class Board {
                 currentTetromino.setYposition(currentTetromino.getYposition() + 1);
                 score += 2;
             } else {
-              landTetromino(currentTetromino);
-              updateSidePanelLabels();
-              break;
+                landTetromino(currentTetromino);
+                updateSidePanelLabels();
+                break;
             }           
         }        
     }
@@ -190,7 +192,7 @@ public class Board {
         
         // chek if we can move into initial position
         if(isTetrominoColliding(0,0,currentTetromino)) {
-            currentTetromino.clearTetromino();
+             currentTetromino.clearTetromino();
             isGameRunning = false;
         }
     }
